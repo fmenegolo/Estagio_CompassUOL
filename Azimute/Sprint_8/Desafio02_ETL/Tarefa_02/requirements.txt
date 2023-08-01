@@ -1,0 +1,4 @@
+pandas=1.3.5
+boto3=1.26.128
+requests=2.30.0
+ipyton=7.34.0

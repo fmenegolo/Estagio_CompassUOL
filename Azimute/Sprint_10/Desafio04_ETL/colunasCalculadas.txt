@@ -1,0 +1,181 @@
+
+## TABELA Movies Series Actors
+1.
+mediaXvotos:
+{notaMedia}*{votos}
+
+Actors_mediaXvotos_Ponderada:
+sum({mediaXvotos}) / sum({votos})
+
+2.
+popularidadeXvotos:
+{popularidade}*{votos}
+
+Actors_popularidadeXvotos_Ponderado:
+sum({popularidadeXvotos}) / sum({votos})
+
+3.
+atuacoes:
+COUNT({nomeArtista})
+
+4.
+Actors_KPI:
+(0.8 * {Actors_mediaXvotos_Ponderada}*{atuacoes}) + (0.2 * {Actors_popularidadeXvotos_Ponderado}*{atuacoes})/{atuacoes}+1
+ou
+(0.8 * (sum({mediaXvotos}) / sum({votos}))*{atuacoes}) + (0.2 * (sum({popularidadeXvotos}) / sum({votos}))*{atuacoes})/{atuacoes}+1
+
+
+rankArtista:
+denseRank([{Actors_KPI} DESC], [], POST_AGG_FILTER)
+
+5.
+idade:
+parseInt(substring(dataLancamento,1,4))- anoNascimento
+
+---------------------------------------------------------------------------------------------
+_____________________________________________________________________________________________
+
+## TABELA Movies Series
+1.
+mediaXvotos:
+notaMedia*{votos}
+
+mediaXvotos_Ponderada:
+avg({mediaXvotos}) / avg({votos})
+
+2.
+popularidadeXvotos:
+popularidade*{votos}
+
+popularidadeXvotos_Ponderado:
+avg({popularidadeXvotos}) / avg({votos})
+
+3.
+Movies_KPI:
+(0.8 * {mediaXvotos_Ponderada}) + (0.2 * {popularidadeXvotos_Ponderado})
+ou
+(0.8 * (avg({mediaXvotos}) / avg({votos}))) + (0.2 * (avg({popularidadeXvotos}) / avg({votos})))/1
+
+
+KPI_DenseRank:
+denseRank([Movies_KPI DESC], [], POST_AGG_FILTER)
+___________________________________________________________________________________________________________
+___________________________________________________________________________________________________________
+
+grupoTitulos:
+
+ifelse(
+  contains(titulo, "Ace Attorney"), "Ace Attorney",
+  ifelse(
+    contains(titulo, "Angel"), "Angel",
+    ifelse(
+      contains(titulo, "Animal World"), "Animal World",
+      ifelse(
+        contains(titulo, "Another"), "Another",
+        ifelse(
+          contains(titulo, "Assassination Classroom"), "Assassination Classroom",
+          ifelse(
+            contains(titulo, "Attack on Titan"), "Attack on Titan",
+            ifelse(
+              contains(titulo, "Bakuman"), "Bakuman",
+              ifelse(
+                contains(titulo, "Black Butler"), "Black Butler",
+                ifelse(
+                  contains(titulo, "Black Fox"), "Black Fox",
+                  ifelse(
+                    contains(titulo, "Blade"), "Blade",
+                    ifelse(
+                      contains(titulo, "Blade of the Immortal"), "Blade of the Immortal",
+                      ifelse(
+                        contains(titulo, "Bleach"), "Bleach",
+                        ifelse(
+                          contains(titulo, "Casshern"), "Casshern",
+                          ifelse(
+                            contains(titulo, "Death Note"), "Death Note",
+                            ifelse(
+                              contains(titulo, "Detroit Metal City"), "Detroit Metal City",
+                              ifelse(
+                                contains(titulo, "Dragon Ball"), "Dragon Ball",
+                                ifelse(
+                                  contains(titulo, "Fist of the North Star"), "Fist of the North Star",
+                                  ifelse(
+                                    contains(titulo, "Fullmetal Alchemist"), "Fullmetal Alchemist",
+                                    ifelse(
+                                      contains(titulo, "Gantz"), "Gantz",
+                                      ifelse(
+                                        contains(titulo, "Ghost in the Shell"), "Ghost in the Shell",
+                                        ifelse(
+                                          contains(titulo, "Gintama"), "Gintama",
+                                          ifelse(
+                                            contains(titulo, "Graduation"), "Graduation",
+                                            ifelse(
+                                              contains(titulo, "Hunter x Hunter"), "Hunter x Hunter",
+                                              ifelse(
+                                                contains(titulo, "Ichi the Killer"), "Ichi the Killer",
+                                                ifelse(
+                                                  contains(titulo, "Illang The Wolf Brigade"), "Illang The Wolf Brigade",
+                                                  ifelse(
+                                                    contains(titulo, "Initial D"), "Initial D",
+                                                    ifelse(
+                                                      contains(titulo, "Inuyashiki"), "Inuyashiki",
+                                                      ifelse(
+                                                        contains(titulo, "JoJos Bizarre Adventure"), "JoJos Bizarre Adventure",
+                                                        ifelse(
+                                                          contains(titulo, "Kakegurui"), "Kakegurui",
+                                                          ifelse(
+                                                            contains(titulo, "Kite"), "Kite",
+                                                            ifelse(
+                                                              contains(titulo, "New Fist of the North Star"), "Fist of the North Star",
+                                                              ifelse(
+                                                                contains(titulo, "Pokémon"), "Pokémon",
+                                                                ifelse(
+                                                                  contains(titulo, "Rurouni Kenshin"), "Rurouni Kenshin",
+                                                                  ifelse(
+                                                                    contains(titulo, "Saint Seiya"), "Saint Seiya",
+                                                                    ifelse(
+                                                                      contains(titulo, "Shinobi"), "Shinobi",
+                                                                      ifelse(
+                                                                        contains(titulo, "Speed Racer"), "Speed Racer",
+                                                                        ifelse(
+                                                                          contains(titulo, "Terra Formars"), "Terra Formars",
+                                                                          ifelse(
+                                                                            contains(titulo, "Van Von Hunter"), "Van Von Hunter",
+                                                                            "Outros"
+                                                                          )
+                                                                        )
+                                                                      )
+                                                                    )
+                                                                  )
+                                                                )
+                                                              )
+                                                            )
+                                                          )
+                                                        )
+                                                      )
+                                                    )
+                                                  )
+                                                )
+                                              )
+                                            )
+                                          )
+                                        )
+                                      )
+                                    )
+                                  )
+                                )
+                              )
+                            )
+                          )
+                        )
+                      )
+                    )
+                  )
+                )
+              )
+            )
+          )
+        )
+      )
+    )
+  )
+)

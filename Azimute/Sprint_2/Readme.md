@@ -1,0 +1,2 @@
+- Sprint 2
+    Projetos de dados naturalmente envolvem operações em bases de dados. Tais bases residem em Sistemas Gerenciadores de Banco de Dados (SGBDs), boa parte relacional. Para estes, utilizamos a linguagem SQL para executar operações. Nesta sprint você irá aprofundar seus conhecimentos de SQL, assim como entender que o modelo relacional, quando aplicado ao contexto de Big Data, é insuficiente para fazer frente a todos os requisitos de dados envolvidos.

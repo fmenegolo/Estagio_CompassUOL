@@ -1,0 +1,6 @@
+path/to/large/files filter=lfs diff=lfs merge=lfs -text
+mnt/wsl/PHYSICALDRIVE2/Projects/Compasso/Azimute/Sprint_7/Desafio01_ETL/assets/*.csv filter=lfs diff=lfs merge=lfs -text
+Azimute/Sprint_7/Desafio01_ETL/assets/movies.csv filter=lfs diff=lfs merge=lfs -text
+Azimute/Sprint_7/Desafio01_ETL/assets/series.csv filter=lfs diff=lfs merge=lfs -text
+Azimute/Sprint_8/Tarefa_02/assets/minha-camada.zip filter=lfs diff=lfs merge=lfs -text
+Azimute/Sprint_8/Tarefa_04/nomes_aleatorios.txt filter=lfs diff=lfs merge=lfs -text
